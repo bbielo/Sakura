@@ -18,4 +18,12 @@
 
 ```bash
 python sakura.py
+```
 <br />
+<br />
+
+### 2. `html/`
+<br />
+<br />
+
+### 3. `vue-sakura/`
