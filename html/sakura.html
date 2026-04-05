@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>벚꽃 애니메이션 🌸</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+            font-family: monospace;
+            color: white;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const petals = ["🌸", "✿", "❀", "💮"];
+        const sparkles = ["✨", "⋆", "✦"];
+
+        const blossoms = Array.from({
+            length: 50
+        }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            speed: Math.random() * 2 + 0.5,
+            shape: petals[Math.floor(Math.random() * petals.length)]
+        }));
+
+        const twinkles = Array.from({
+            length: 20
+        }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            shape: sparkles[Math.floor(Math.random() * sparkles.length)]
+        }));
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = "20px serif";
+
+            // 반짝이
+            twinkles.forEach(t => {
+                if (Math.random() < 0.05) {
+                    t.x = Math.random() * canvas.width;
+                    t.y = Math.random() * canvas.height;
+                }
+                ctx.fillText(t.shape, t.x, t.y);
+            });
+
+            // 꽃잎
+            blossoms.forEach(b => {
+                ctx.fillText(b.shape, b.x, b.y);
+
+                b.y += b.speed;
+                b.x += (Math.random() - 0.5) * 2;
+
+                if (b.y > canvas.height) {
+                    b.y = 0;
+                    b.x = Math.random() * canvas.width;
+                }
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+
+</html>
