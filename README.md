@@ -1,7 +1,7 @@
 # 🌸 Sakura
 <img width="996" height="408" alt="image" src="https://github.com/user-attachments/assets/11bc7bb7-8be7-4f10-b6fa-8628654b6c5d" />
 
-벚꽃 애니메이션을 다양한 방식으로 구현한 프로젝트입니다.
+@irene__log님이 공유해주신 벚꽃 애니메이션을 다양한 방식으로 구현한 프로젝트입니다.
 <br />
 <br />
 <br />
